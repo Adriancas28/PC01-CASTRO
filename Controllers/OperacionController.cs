@@ -49,7 +49,7 @@ namespace PC01.Controllers
             double comision = montoAbonado <= 300 ? 3 : 1;
             double igv = montoAbonado * 0.18;
             // Calcular Total a Pagar
-            double total = montoAbonado + igv + comision;
+            double total = montoTotalInstrumentos + (montoAbonado + igv + comision)*operacion.Instrumentos.Count ;
 
             // Pasar los valores calculados a la vista
             ViewData["Instrumentos"] = string.Join(", ", operacion.Instrumentos);
@@ -77,5 +77,5 @@ namespace PC01.Controllers
         public List<string>? Instrumentos { get; set;}
         public double? Monto { get; set;}
     }
-    }
+    
 }
